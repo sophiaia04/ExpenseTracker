@@ -27,5 +27,23 @@ build_property.EnableGeneratedComInterfaceComImportInterop =
 [/Users/admin/Projects/ExpenseTracking/ExpenseTracker/ExpenseTracker/App.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
+[/Users/admin/Projects/ExpenseTracking/ExpenseTracker/ExpenseTracker/Views/Controls/SmartComboBox.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[/Users/admin/Projects/ExpenseTracking/ExpenseTracker/ExpenseTracker/Views/Controls/SmartTextBox.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[/Users/admin/Projects/ExpenseTracking/ExpenseTracker/ExpenseTracker/Views/Controls/VacationView.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
 [/Users/admin/Projects/ExpenseTracking/ExpenseTracker/ExpenseTracker/Views/MainWindow.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[/Users/admin/Projects/ExpenseTracking/ExpenseTracker/ExpenseTracker/Views/Pages/CategoryChart.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[/Users/admin/Projects/ExpenseTracking/ExpenseTracker/ExpenseTracker/Views/Pages/ExpenseChart.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[/Users/admin/Projects/ExpenseTracking/ExpenseTracker/ExpenseTracker/Views/Pages/MonthChart.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml

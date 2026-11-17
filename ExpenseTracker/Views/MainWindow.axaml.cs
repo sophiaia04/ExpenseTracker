@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using Avalonia.Controls;
+using ExpenseTracker.ViewModels;
 
 namespace ExpenseTracker.Views;
 
@@ -8,4 +10,7 @@ public partial class MainWindow : Window
     {
         InitializeComponent();
     }
+    
+    
+    
 }

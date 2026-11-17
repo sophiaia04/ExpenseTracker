@@ -1,0 +1,22 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="440" d:DesignHeight="40"
+             x:Class="ExpenseTracker.Views.Controls.SmartComboBox" 
+             x:Name="Root">
+    
+    <Grid ColumnDefinitions="Auto,*">
+        
+        <TextBlock Grid.Column="0" 
+                   Text="What did you purchase: " 
+                   VerticalAlignment="Center" 
+                   Margin="0,0,10,0"/>
+        
+        <ComboBox Grid.Column="1" 
+                  ItemsSource="{Binding #Root.SubCategory}" 
+                  SelectedItem="{Binding #Root.SelectedCategory, Mode=TwoWay}" 
+                  HorizontalAlignment="Stretch"/>        
+    </Grid>   
+    
+</UserControl>

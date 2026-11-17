@@ -1,0 +1,36 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:ExpenseTracker.ViewModels"
+             xmlns:dg="clr-namespace:Avalonia.Controls;assembly=Avalonia.Controls.DataGrid"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             
+             x:Class="ExpenseTracker.Views.Pages.MonthChart"
+             x:DataType="vm:MainWindowViewModel">
+
+    <Grid Margin="20">
+        <dg:DataGrid ItemsSource="{Binding MonthlySummaries}" 
+                     AutoGenerateColumns="False" 
+                     IsReadOnly="True"
+                     GridLinesVisibility="All"
+                     BorderThickness="1" BorderBrush="Gray">
+            <dg:DataGrid.Columns>
+                <dg:DataGridTextColumn Header="Month" Binding="{Binding Month}" Width="Auto" />
+                <dg:DataGridTextColumn Header="Income" Binding="{Binding Income, StringFormat='{}{0:N2}'}" Width="100" Foreground="Green" />
+                <dg:DataGridTextColumn Header="Grocery" Binding="{Binding Grocery, StringFormat='{}{0:N2}'}" Width="100" />
+                <dg:DataGridTextColumn Header="EatOut" Binding="{Binding EatOut, StringFormat='{}{0:N2}'}" Width="100" />
+                <dg:DataGridTextColumn Header="Activity" Binding="{Binding Activity, StringFormat='{}{0:N2}'}" Width="100" />
+                <dg:DataGridTextColumn Header="Shopping" Binding="{Binding Shopping, StringFormat='{}{0:N2}'}" Width="100" />
+                <dg:DataGridTextColumn Header="Present" Binding="{Binding Present, StringFormat='{}{0:N2}'}" Width="100" />
+                <dg:DataGridTextColumn Header="Tech" Binding="{Binding Tech, StringFormat='{}{0:N2}'}" Width="100" />
+                <dg:DataGridTextColumn Header="Investment" Binding="{Binding Investment, StringFormat='{}{0:N2}'}" Width="100" />
+                <dg:DataGridTextColumn Header="SBB" Binding="{Binding Sbb, StringFormat='{}{0:N2}'}" Width="100" />
+                <dg:DataGridTextColumn Header="Accommodation" Binding="{Binding Accommodation, StringFormat='{}{0:N2}'}" Width="110" />
+                <dg:DataGridTextColumn Header="Vacation" Binding="{Binding Vacation, StringFormat='{}{0:N2}'}" Width="100" />
+                <dg:DataGridTextColumn Header="Others" Binding="{Binding Others, StringFormat='{}{0:N2}'}" Width="100" />
+                <dg:DataGridTextColumn Header="Total" Binding="{Binding Total, StringFormat='{}{0:N2}'}" Width="100" FontWeight="Bold" />            
+            </dg:DataGrid.Columns>
+        </dg:DataGrid>
+    </Grid>
+</UserControl>

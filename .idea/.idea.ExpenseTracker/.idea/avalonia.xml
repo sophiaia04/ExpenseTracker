@@ -3,7 +3,28 @@
   <component name="AvaloniaProject">
     <option name="projectPerEditor">
       <map>
+        <entry key="ExpenseTracker/App.axaml" value="ExpenseTracker/ExpenseTracker.csproj" />
+        <entry key="ExpenseTracker/Views/Categories/Accommodation.axaml" value="ExpenseTracker/ExpenseTracker.csproj" />
+        <entry key="ExpenseTracker/Views/Categories/Activity.axaml" value="ExpenseTracker/ExpenseTracker.csproj" />
+        <entry key="ExpenseTracker/Views/Categories/Investment.axaml" value="ExpenseTracker/ExpenseTracker.csproj" />
+        <entry key="ExpenseTracker/Views/Categories/Others.axaml" value="ExpenseTracker/ExpenseTracker.csproj" />
+        <entry key="ExpenseTracker/Views/Categories/Present.axaml" value="ExpenseTracker/ExpenseTracker.csproj" />
+        <entry key="ExpenseTracker/Views/Categories/Shopping.axaml" value="ExpenseTracker/ExpenseTracker.csproj" />
+        <entry key="ExpenseTracker/Views/Categories/ShoppingViewModel.axaml.cs.axaml" value="ExpenseTracker/ExpenseTracker.csproj" />
+        <entry key="ExpenseTracker/Views/Categories/Techproduct.axaml" value="ExpenseTracker/ExpenseTracker.csproj" />
+        <entry key="ExpenseTracker/Views/Categories/Transport.axaml" value="ExpenseTracker/ExpenseTracker.csproj" />
+        <entry key="ExpenseTracker/Views/Controls/CategoriesControls/Activity.axaml" value="ExpenseTracker/ExpenseTracker.csproj" />
+        <entry key="ExpenseTracker/Views/Controls/SmartComboBox.axaml" value="ExpenseTracker/ExpenseTracker.csproj" />
+        <entry key="ExpenseTracker/Views/Controls/SmartTextBox.axaml" value="ExpenseTracker/ExpenseTracker.csproj" />
+        <entry key="ExpenseTracker/Views/Controls/VacationView.axaml" value="ExpenseTracker/ExpenseTracker.csproj" />
         <entry key="ExpenseTracker/Views/MainWindow.axaml" value="ExpenseTracker/ExpenseTracker.csproj" />
+        <entry key="ExpenseTracker/Views/Pages/CategoryChart.axaml" value="ExpenseTracker/ExpenseTracker.csproj" />
+        <entry key="ExpenseTracker/Views/Pages/ExpenseChart.axaml" value="ExpenseTracker/ExpenseTracker.csproj" />
+        <entry key="ExpenseTracker/Views/Pages/MonthChart.axaml" value="ExpenseTracker/ExpenseTracker.csproj" />
+        <entry key="ExpenseTracker/Views/SmartTextBox.axaml" value="ExpenseTracker/ExpenseTracker.csproj" />
+        <entry key="ExpenseTracker/Views/StatCardTextBox.axaml" value="ExpenseTracker/ExpenseTracker.csproj" />
+        <entry key="ExpenseTracker/Views/StatCardTexxtBox.axaml" value="ExpenseTracker/ExpenseTracker.csproj" />
+        <entry key="ExpenseTracker/Views/TextBox.axaml" value="ExpenseTracker/ExpenseTracker.csproj" />
       </map>
     </option>
   </component>

@@ -1,0 +1,30 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="ExpenseTracker.Views.Controls.VacationView"
+             x:Name="Root">
+    
+    <StackPanel Width="440" Spacing="10" HorizontalAlignment="Center">
+        
+        <TextBox Text="{Binding #Root.TripName}" 
+                 PlaceholderText="Enter Trip Name..." 
+                 HorizontalAlignment="Stretch"/>
+        
+        <Grid ColumnDefinitions="*,*,*,*">
+            <TextBox Grid.Column="0" Text="{Binding #Root.vacFoodAmount}" 
+                     PlaceholderText="Food CHF" Margin="0,0,5,0"/>
+            
+            <TextBox Grid.Column="1" Text="{Binding #Root.vacTransportAmount}" 
+                     PlaceholderText="Transport" Margin="5,0,5,0"/>
+            
+            <TextBox Grid.Column="2" Text="{Binding #Root.vacAccommodationAmount}" 
+                     PlaceholderText="Hotel" Margin="5,0,5,0"/>
+            
+            <TextBox Grid.Column="3" Text="{Binding #Root.vacShoppingAmount}" 
+                     PlaceholderText="Shopping" Margin="5,0,0,0"/>
+        </Grid>
+        
+    </StackPanel>
+</UserControl>

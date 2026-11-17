@@ -3,6 +3,9 @@
         xmlns:vm="using:ExpenseTracker.ViewModels"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:views="clr-namespace:ExpenseTracker.Views"
+        xmlns:controls="clr-namespace:ExpenseTracker.Views.Controls"
+        xmlns:pages="clr-namespace:ExpenseTracker.Views.Pages"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="ExpenseTracker.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
@@ -10,11 +13,104 @@
         Title="ExpenseTracker">
 
     <Design.DataContext>
-        <!-- This only sets the DataContext for the previewer in an IDE,
-             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
         <vm:MainWindowViewModel/>
     </Design.DataContext>
+    
+    <Window.Styles>
+        <Style Selector="Button.action">
+            <Setter Property="FontFamily" Value="Segoe UI"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background" Value="#8A2BE2"/> 
+            <Setter Property="Padding" Value="15,8"/>
+            <Setter Property="CornerRadius" Value="5"/>
+        </Style>
+    </Window.Styles>
+    
+    <SplitView IsPaneOpen="{Binding IsMenuOpen}" DisplayMode="Overlay" OpenPaneLength="200">
+        
+        <SplitView.Pane>
+            <Border Background="#333333" Padding="20">
+                <StackPanel Spacing="5">
+                    
+                    <Button Content="Home" Command="{Binding ClickedHomeCommand}" 
+                            Foreground="White" Background="Transparent" 
+                            HorizontalAlignment="Stretch" HorizontalContentAlignment="Left"/>
+                    
+                    <Grid ColumnDefinitions="*, Auto" Margin="0,5,0,0">
+                        <Button Grid.Column="0" Content="Charts 2026" Command="{Binding ShowExpense2026Command}" 
+                                Foreground="White" Background="Transparent" 
+                                HorizontalAlignment="Stretch" HorizontalContentAlignment="Left"/>
+                        
+                        <ToggleButton Grid.Column="1" x:Name="SubMenuToggle" Content="▼" 
+                                      Foreground="White" Background="Transparent" 
+                                      Width="35" HorizontalContentAlignment="Center"/>
+                    </Grid>
+                    
+                    <StackPanel IsVisible="{Binding #SubMenuToggle.IsChecked}" Margin="15,5,0,0" Spacing="5">
+                        <Button Content="↳ Monthly Overview" Command="{Binding ShowMonthViewCommand}" 
+                                Foreground="LightGray" Background="Transparent" 
+                                HorizontalAlignment="Stretch" HorizontalContentAlignment="Left"/>
+                    </StackPanel>
+                    
+                </StackPanel>
+            </Border>
+        </SplitView.Pane>
+        
+        <SplitView.Content>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                
+                <Border Grid.Row="0" Background="#F5F5F5" Padding="10">
+                    <Button Content="☰ Menü" Command="{Binding ToggleMenuCommand}" Background="Transparent" FontSize="16" FontWeight="Bold" HorizontalAlignment="Left"/>
+                </Border>
+                
+                <Grid Grid.Row="1" Margin="20" IsVisible="{Binding IsHomeVisible}">
+                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="15">
+                        <TextBlock Text="Add New Expense" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,0,0,10"/>
+                        
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,15">
+                            <TextBlock Text="Aktueller Kontostand: " FontSize="16" FontWeight="SemiBold" Foreground="Gray"/>
+                            <TextBlock Text="{Binding Total, StringFormat='{}{0:N2} CHF'}" FontSize="16" FontWeight="Bold" Foreground="#8A2BE2"/>
+                        </StackPanel>
 
-    <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <TextBlock Text="Income" FontSize="14" FontWeight="Bold" Foreground="#8A2BE2"/>
+                        <StackPanel Orientation="Horizontal" Spacing="10">
+                            <TextBox Text="{Binding Income}" PlaceholderText="Enter amount..." Width="120"/>
+                            <ComboBox ItemsSource="{Binding IncomeCategories}" 
+                                      Text="{Binding SelectedIncomeCategory, Mode=TwoWay}" 
+                                      IsEditable="True"
+                                      PlaceholderText="Category" Width="150"/>
+                            <TextBox Text="{Binding IncomeComments}" PlaceholderText="Any comments?" Width="150"/>
+                        </StackPanel>
+    
+                        <Separator Height="2" Background="LightGray" Margin="0,10"/>
+    
+                        <TextBlock Text="Expense" FontSize="14" FontWeight="Bold" Foreground="#8A2BE2"/>
+                        <StackPanel Orientation="Horizontal" Spacing="10">
+                            <TextBox Text="{Binding Amount}" PlaceholderText="Enter amount..." Width="120"/>
+                            <ComboBox ItemsSource="{Binding Categories}" SelectedItem="{Binding SelectedCategory}" PlaceholderText="Category" Width="150"/>
+                            <TextBox Text="{Binding Comments}" PlaceholderText="Any comments?" Width="150"/>
+                        </StackPanel>
+                        <TextBlock Text="{Binding ErrorText}" Foreground="Red" FontWeight="Bold" IsVisible="{Binding ErrorText, Converter={x:Static StringConverters.IsNotNullOrEmpty}}" />
+                
+                        <controls:SmartTextBox IsVisible="{Binding IsActivityVisible}" SubCategory="{Binding ActivityCategory, Mode=TwoWay}" WatermarkText="{Binding ActivityWatermarkText}" Width="440" HorizontalAlignment="Center"/>
+                        <controls:SmartTextBox IsVisible="{Binding IsTechVisible}" SubCategory="{Binding TechProductCategory, Mode=TwoWay}" WatermarkText="{Binding TechWatermarkText}" Width="440" HorizontalAlignment="Center"/>
+                        <controls:SmartTextBox IsVisible="{Binding IsOthersVisible}" SubCategory="{Binding OthersCategory, Mode=TwoWay}" WatermarkText="{Binding OthersWatermarkText}" Width="440" HorizontalAlignment="Center"/>
+                        <controls:SmartComboBox IsVisible="{Binding IsShoppingVisible}" SubCategory="{Binding ShoppingCategories}" SelectedCategory="{Binding SelectedShoppingCategory, Mode=TwoWay}" Width="440" HorizontalAlignment="Center"/>
+                        <controls:VacationView IsVisible="{Binding IsVacationVisible}" vacFoodAmount="{Binding vacFoodAmount, Mode=TwoWay}" vacTransportAmount="{Binding vacTransportAmount, Mode=TwoWay}" vacAccommodationAmount="{Binding vacAccommodationAmount, Mode=TwoWay}" vacShoppingAmount="{Binding vacShoppingAmount, Mode=TwoWay}" vacPresentAmount="{Binding vacPresentAmount, Mode=TwoWay}" TripName="{Binding TripName, Mode=TwoWay}" Width="440" HorizontalAlignment="Center"/>
+                    
+                        <Button Content="Ok" Classes="action" Command="{Binding SaveExpenseCommand}" HorizontalAlignment="Right" Margin="0,10,0,0"/>
+                    </StackPanel>
+                </Grid>    
+                
+                <pages:ExpenseChart Grid.Row="1" IsVisible="{Binding IsExpense2026Visible}"/>
+                <pages:MonthChart Grid.Row="1" IsVisible="{Binding IsMonthVisible}"/>
+            </Grid>
+        </SplitView.Content>
+    </SplitView>
 
 </Window>
